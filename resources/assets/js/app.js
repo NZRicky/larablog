@@ -20,3 +20,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+
+/**
+ * Common event:
+ *
+ * [data-link=....]  click event & redirect to specified link
+ */
+$("[data-link]").click(function(){
+   window.location.href = $(this).attr('data-link');
+});

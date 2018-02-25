@@ -11,6 +11,25 @@
 |
 */
 
+// ----------------------------------------------------------
+// Default Main Entry
+// ----------------------------------------------------------
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+// ----------------------------------------------------------
+// Admin Routes
+// ----------------------------------------------------------
+Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
+
+    // Admin main entry
+    Route::get('/', 'HomeController@index');
 });
