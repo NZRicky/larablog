@@ -26,7 +26,37 @@ const app = new Vue({
  * Common event:
  *
  * [data-link=....]  click event & redirect to specified link
+ * [data-link-destroy=...] click event & ajax post(delete) to destory record
  */
+
+// click event & redirect to specified link
 $("[data-link]").click(function(){
    window.location.href = $(this).attr('data-link');
+});
+
+/**
+ * click event & ajax post(delete) to destory record
+ *
+ * Ajax Request
+ *
+ * Done: Redirect to the link if specify redirect property
+ */
+$("[data-link-destroy]").click(function(){
+    if (confirm("Are you sure?")) {
+        $.ajax({
+            url:$(this).attr("data-link-destroy"),
+            method: "delete",
+            dataType: "json",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        }).done(function(data){
+            if (typeof data.redirect != 'undefined') {
+                window.location.href = data.redirect;
+            }
+        }).fail(function(){
+
+        });
+    }
+
 });

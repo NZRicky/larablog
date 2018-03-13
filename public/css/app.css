@@ -10002,5 +10002,6 @@ a.text-dark:focus {
 
 .title-bar {
   border-bottom: solid 1px #ccc;
+  margin-bottom: 20px;
 }
 

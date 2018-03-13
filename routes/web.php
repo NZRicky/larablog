@@ -31,5 +31,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
 
     // Admin main entry
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'HomeController@index')->name('admin.home');
+
+    Route::resource('posts', 'PostController',[
+        'as' => 'admin'
+    ]);
+    // Posts CRUD
+    //Route::get('/posts/create', 'PostController@create')->name('admin_post_create');
+    //Route::post('/posts', 'PostController@store')->name('admin_post_store');
+    //Route::get('/posts/{id}/edit', 'PostController@edit')->name('admin_post_edit');
+    //Route::put('/posts/{id}', 'PostController@update')->name('admin_post_update');
+    //Route::delete('/posts/{id}', 'PostController@destroy')->name('admin_post_destroy');
 });
