@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')->simplePaginate(15);
+        $posts = DB::table('posts')->simplePaginate(5);
         return view('home', [
             'posts' => $posts
         ]);

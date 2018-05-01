@@ -32,7 +32,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')->get();
+        $posts = DB::table('posts')->paginate(10);
         return view('admin.home',['posts' => $posts]);
     }
 
