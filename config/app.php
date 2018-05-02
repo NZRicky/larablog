@@ -147,6 +147,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
@@ -159,6 +160,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        // Markdown to HTML provider
+        GrahamCampbell\Markdown\MarkdownServiceProvider::class,
 
     ],
 
@@ -208,6 +212,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        // Markdown facade
+        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
 
     ],
 
