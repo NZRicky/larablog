@@ -9,7 +9,7 @@
                 <li class="media">
                     <div class="media-body">
                         <h2 class="mt-0 mb-1">{{ $post->title }}</h2>
-                        {{ Markdown::convertToHtml($post->content) }}
+                        {!!  Markdown::convertToHtml($post->content) !!}
                     </div>
                 </li>
                 @endforeach

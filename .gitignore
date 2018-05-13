@@ -1,3 +1,4 @@
+storage/framework
 config/database.php
 *.swp
 /node_modules
