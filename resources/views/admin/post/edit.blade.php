@@ -33,6 +33,10 @@
                     <label>Content</label>
                     <textarea class="form-control" name="content" placeholder="">{{ old('content', (isset($post) ? $post->content : '')) }}</textarea>
                 </div>
+                    <div class="form-group">
+                        <label>Tags</label>
+                        <input type="text" class="form-control" name="tags" value="{{ old('tags', (isset($post) ? $post->tags : '')) }}">
+                    </div>
                 <button class="btn btn-primary" type="submit">Post</button>
             </form>
         </div>
