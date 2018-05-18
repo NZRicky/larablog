@@ -204,6 +204,9 @@ class PostController extends Controller
         // Get post by id or throw 404 not found exception if you don't catch exception
         $post = Post::findOrFail($id);
 
+        // delete tags from post_tags table
+        DB::table("post_tags")->where('post_id', $id)->delete();
+
         $post->delete();
 
         // flash message

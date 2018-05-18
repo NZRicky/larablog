@@ -28,9 +28,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
-                        <li>Laravel</li>
-                        <li>Symfony</li>
-                        <li>React</li>
+                        <li><a href="{{ url('/?tag=laravel') }}">Laravel</a></li>
+                        <li><a href="{{ url('/?tag=symfony') }}">Symfony</a></li>
+                        <li><a href="{{ url('/?tag=react') }}">React</a></li>
 
                     </ul>
 

@@ -22,9 +22,25 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = DB::table('posts')->simplePaginate(1);
+
+        // if specified tag, list post with that tag
+        $tag = $request->query("tag");
+
+        if ($tag) {
+            $posts = DB::table('post_tags')
+                ->join('posts', 'posts.id','=','post_tags.post_id')
+                ->join('tags', 'tags.id', '=', 'post_tags.tag_id')
+                ->where('tags.name',$tag)->simplePaginate(5);
+
+        } else {
+            $posts = DB::table('posts')->simplePaginate(5);
+
+        }
+
+
+
         return view('home', [
             'posts' => $posts
         ]);
