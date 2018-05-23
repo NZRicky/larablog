@@ -66,6 +66,7 @@ class PostController extends Controller
         $title = $request->input('title');
         $content = $request->input('content');
         $tags = $request->input('tags');
+        $isPrivate = $request->input('is_private');
 
         // store tags if specified
         if ($tags) {
@@ -78,7 +79,9 @@ class PostController extends Controller
                 'title' => $title,
                 'content' => $content,
                 'created_at' => new \DateTime(),
-                'updated_at' => new \DateTime()
+                'updated_at' => new \DateTime(),
+                'tags' => $tags,
+                'is_private' => $isPrivate ? true : false
             ]
         );
 
@@ -155,15 +158,21 @@ class PostController extends Controller
             'content' => 'required'
         ]);
 
-        $post->title = $request->title;
-        $post->content = $request->content;
+        $post->title = $request->input('title');
+        $post->content = $request->input('content');
+
+        $tags = $request->input('tags');
+        $isPrivate = $request->input('is_private');
+
+        $post->tags = $tags;
+        $post->is_private = $isPrivate ? true : false;
 
         // save to database
         $post->save();
 
+        // -----------------------------------------
         // process tag
-        $tags = $request->input('tags');
-
+        // -----------------------------------------
         // store tags if specified
         if ($tags) {
             $newTagIdAry = $this->storeTags($tags);

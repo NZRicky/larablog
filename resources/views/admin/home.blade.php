@@ -33,6 +33,8 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
+                        <th scope="col">Tags</th>
+                        <th scope="col">Private</th>
                         <th scope="col">Created At</th>
                         <th scope="col" class="text-right">Action</th>
                     </tr>
@@ -42,6 +44,8 @@
                         <tr>
                             <td scope="row">{{ $post->id }}</td>
                             <td scope="row">{{ $post->title }}</td>
+                            <td scope="row">{{ $post->tags }}</td>
+                            <td scope="row">{{ $post->is_private ? 'Yes' : 'No' }}</td>
                             <td scope="row">{{ $post->created_at }}</td>
                             <td scope="row" class="text-right">
                                 <button class="btn btn-primary btn-sm" type="button"

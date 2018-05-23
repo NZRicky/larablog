@@ -1,13 +1,28 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,600i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700,900,900i");
+
 // Variables
 @import "variables";
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// navbar
+.navbar-brand {
+  text-transform: uppercase;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 900;
+}
+
 .navbar-laravel {
-  background-color: #fff;
+  background-color: $navbar-default-bg;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-nav {
+  font-size: 14px
 }
 
 .title-bar {
@@ -19,16 +34,69 @@
   margin-right: 20px;
 }
 
-ul.posts li {
-  border-bottom: 1px dashed #CCC;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+// posts
+ul.posts {
+  li.media {
+    border-bottom: 1px dashed #CCC;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  li.media:last-child {
+    border-bottom: none;
+  }
+
+  p.tags span {
+    font-weight: bold;
+  }
+
+  // post image
+  .media-img {
+    width: 200px;
+
+    img {
+      width: 100%
+    }
+  }
+
+  .media-body {
+    padding-left: 20px;
+  }
+
+  .post-title {
+    color: #000;
+    font-weight: bold
+  }
 }
 
-ul.posts li:last-child {
-  border-bottom: none;
+// tags
+div.tags {
+  li {
+    float: left;
+    margin-right: 5px;
+  }
+
+  .label {
+    background: #4AD5DC;
+    color: #FFF;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
-ul.posts h2 {
-  font-size: 19px
+// hot posts
+ul.posts.hot-posts {
+  // post image
+  .media-img {
+    width: 60px;
+  }
+}
+
+.sidebar-title {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 15px 0px 15px;
+  margin: 0px;
+  text-transform: uppercase;
+  color: #000;
 }

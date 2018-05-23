@@ -17,6 +17,9 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('content');
+            $table->string('tags',255)->nullable();
+            $table->boolean('is_private');
+            $table->integer('views');
             $table->timestamps();
         });
     }
